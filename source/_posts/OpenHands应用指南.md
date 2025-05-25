@@ -4,7 +4,7 @@ tags:
   - 示例标签
 categories:
   - 示例分类
-index_img: /img/example.jpg
+index_img: /img/hands.png
 banner_img: /img/post_banner.jpg
 banner_mask_alpha: 0.5
 sticky: false
