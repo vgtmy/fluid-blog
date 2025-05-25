@@ -1,9 +1,16 @@
 ---
 title: OpenHands应用指南
 tags:
-  - 示例标签
+  - openhands
+  - OpenDevin
+  - Ai
+  - 应用指南
+  - 开发平台
+  - 编程
+  - StackOverflow
 categories:
-  - 示例分类
+  - 学习笔记
+  - 应用指南
 index_img: /img/hands.png
 banner_img: /img/post_banner.jpg
 banner_mask_alpha: 0.5
@@ -18,10 +25,6 @@ date: 2025-05-25 09:27:38
 OpenHands 代理可以做任何人类开发人员可以做的事情：修改代码、运行命令、浏览 Web、 调用 API，是的，甚至可以从 StackOverflow 复制代码片段。好的，这是一篇根据您提供的资料生成的 OpenHands 应用指南 Markdown 文档。
 
 <!-- more -->
-# OpenHands 应用指南
-
-OpenHands（前身为 OpenDevin）是一个由 AI 驱动的软件开发代理平台。它能执行人类开发者能做的各种任务，例如修改代码、运行命令、浏览网页、调用 API 等。
-
 本文档将指导您如何开始使用 OpenHands，包括安装运行、连接语言模型（LLM）并配置 API 密钥，以及一些基本的使用方法和最佳实践。
 
 ## 1. 开始使用
