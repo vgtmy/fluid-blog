@@ -12,7 +12,7 @@ categories:
   - 学习笔记
   - 应用指南
 index_img: /img/hands.png
-banner_img: 
+banner_img: /img/hands.jpeg
 banner_mask_alpha: 0.5
 sticky: false
 comment: valine
