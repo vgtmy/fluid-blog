@@ -1,5 +1,5 @@
 ---
-title: 博客部署到阿里云+GitHub自动部署全流程指南.md
+title: 博客部署到阿里云+GitHub自动部署全流程指南
 tags:
   - hexo
   - 阿里云
