@@ -7,3 +7,4 @@ db.json
 .deploy*/
 _multiconfig.yml
 # themes/next
+node_modules
