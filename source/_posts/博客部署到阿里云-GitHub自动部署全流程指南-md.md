@@ -11,9 +11,7 @@ tags:
 categories:
   - 学习心得
 index_img: /img/aliyun.jpg
-banner_img: /img/aliyungb.jpg
-banner_mask_alpha: 0.5
-sticky: 
+banner_img: /img/ailiyungb.JPG
 comment: valine
 date: 2025-05-26 15:01:50
 ---
