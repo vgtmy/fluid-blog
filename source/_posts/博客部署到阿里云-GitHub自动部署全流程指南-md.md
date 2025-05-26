@@ -10,9 +10,9 @@ tags:
   - Https
 categories:
   - 学习心得
-index_img: /img/example.jpg
-banner_img: /img/post_banner.jpg
-banner_mask_alpha: 0.3
+index_img: /img/aliyun.jpg
+banner_img: /img/aliyungb.jpg
+banner_mask_alpha: 0.5
 sticky: 
 comment: valine
 date: 2025-05-26 15:01:50
@@ -139,13 +139,13 @@ http://47.111.124.118
 
 | 类型 | 主机记录 | 记录值            | 线路   |
 | -- | ---- | -------------- | ---- |
-| A  | @    | 47.111.124.112 | 默认线路 |
+| A  | @    | 47.111.124.118 | 默认线路 |
 
 如果你想让 `www.vgtmy.com` 也能访问：
 
 | 类型 | 主机记录 | 记录值            | 线路   |
 | -- | ---- | -------------- | ---- |
-| A  | www  | 47.111.124.112 | 默认线路 |
+| A  | www  | 47.111.124.118 | 默认线路 |
 
 ---
 
@@ -296,7 +296,7 @@ apt install certbot python3-certbot-nginx -y
 
 ## 🌐 步骤 2：确保域名已经解析成功
 
-你已经把 `vgtmy.com` 和 `www.vgtmy.com` 指向了你的服务器 `47.111.124.112`，请确认它们已经能通过浏览器访问。
+你已经把 `vgtmy.com` 和 `www.vgtmy.com` 指向了你的服务器 `47.111.124.118`，请确认它们已经能通过浏览器访问。
 
 确认成功后继续。
 
@@ -383,13 +383,13 @@ ssh-keygen -t rsa -b 4096 -C "deploy@hexo"
 ### 2. 把公钥复制到你的服务器
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@47.111.124.112
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@47.111.124.118
 ```
 
 现在你应该可以免密登录服务器：
 
 ```bash
-ssh root@47.111.124.112
+ssh root@47.111.124.118
 ```
 
 ---
@@ -403,7 +403,7 @@ ssh root@47.111.124.112
 | Name              | Value                           |
 | ----------------- | ------------------------------- |
 | `SERVER_SSH_KEY`  | 你本地生成的私钥内容（`~/.ssh/id_rsa` 的内容） |
-| `SERVER_HOST`     | `47.111.124.112`                |
+| `SERVER_HOST`     | `47.111.124.118`                |
 | `SERVER_USERNAME` | `root`（或你设置的用户）                 |
 
 ---
