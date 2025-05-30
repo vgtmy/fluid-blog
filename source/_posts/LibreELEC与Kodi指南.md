@@ -10,7 +10,7 @@ categories:
   - 学习心得
 index_img: /img/kodi.jpg
 banner_img: /img/LibreELEC.jpg
-banner_mask_alpha: 0.3
+banner_mask_alpha: 0.7
 sticky: 
 comment: valine
 date: 2025-05-30 15:09:13
