@@ -7,11 +7,12 @@ tags:
   - 博客
   - 自动部署
   - CI/CD
-  - Https
+  - Https 
 categories:
   - 学习心得
 index_img: /img/aliyun.jpg
-banner_img: /img/ailiyungb.JPG
+banner_img: /img/ailiyungb.jpg
+banner_mask_alpha: 0.6
 comment: valine
 date: 2025-05-26 15:01:50
 ---
@@ -20,6 +21,8 @@ date: 2025-05-26 15:01:50
 将 Hexo 博客部署到阿里云服务器的完整流程如下，我们会从本地部署到服务器、配置域名、开放端口、防火墙、安全组等步骤一步一步来，适合初学者。
 
 ---
+<!--more-->
+
 # 博客部署到阿里云
 
 ## 🧱 一、前提准备
