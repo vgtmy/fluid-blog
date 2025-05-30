@@ -25,9 +25,9 @@ LibreELEC 是一个开源的 Linux 发行版，内置 Kodi 媒体中心。它由
 <!--more-->
 ---
 
-# LibreELEC 下载、安装与应用详细教程
+# 📥 LibreELEC 下载、安装与应用详细教程
 
-## 一、LibreELEC 下载
+## 🧩 一、LibreELEC 下载
 
 要下载 LibreELEC，首先需根据设备平台选择正确版本。
 
@@ -60,7 +60,7 @@ LibreELEC 是一个开源的 Linux 发行版，内置 Kodi 媒体中心。它由
 
 ---
 
-## 二、LibreELEC 安装
+## 💾 二、LibreELEC 安装
 
 ### 1. 安装准备
 
@@ -91,7 +91,7 @@ LibreELEC 是一个开源的 Linux 发行版，内置 Kodi 媒体中心。它由
 
 ---
 
-## 三、首次设置流程
+## 🛠️ 三、LibreELEC 首次设置
 
 LibreELEC 首次启动会进入图形化配置向导：
 
@@ -107,7 +107,7 @@ LibreELEC 首次启动会进入图形化配置向导：
 
 ---
 
-## 四、Kodi 应用与实用设置
+## 🎬 四、LibreELEC (Kodi) 应用与设置
 
 LibreELEC 的核心为 Kodi，配置 Kodi 才是系统的重点。
 
@@ -130,7 +130,7 @@ LibreELEC 的核心为 Kodi，配置 Kodi 才是系统的重点。
 
 ---
 
-## 五、常见问题与故障排除
+## 🧯 五、LibreELEC 故障排除
 
 ### 1. 无法从 U 盘启动（电视盒子）
 
