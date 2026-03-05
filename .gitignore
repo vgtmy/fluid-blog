@@ -8,3 +8,7 @@ db.json
 _multiconfig.yml
 # themes/next
 node_modules
+echo "node_modules/" >> .gitignore
+echo "public/" >> .gitignore
+echo ".deploy_git/" >> .gitignore
+echo "db.json" >> .gitignore

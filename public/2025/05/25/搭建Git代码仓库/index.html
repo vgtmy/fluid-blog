@@ -22,11 +22,11 @@
     <meta name="description" content="Git、Gitea 和 TortoiseGit：代码版本控制与托管指南本文将介绍 Git 分布式版本控制系统，轻量级的自建 Git 服务 Gitea，以及 Git 的 Windows GUI 客户端 TortoiseGit。我们将探讨它们各自的功能、如何进行安装，以及如何将它们结合起来，为您的代码提供版本控制和集中托管。 1. Git：分布式版本控制的核心Git 是一个开源的分布式版本控制软件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建Git代码仓库：代码版本控制与托管指南">
-<meta property="og:url" content="https://vgtmy.github.io/2025/05/25/%E6%90%AD%E5%BB%BAGit%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/index.html">
+<meta property="og:url" content="https://www.vgtmy.com/2025/05/25/%E6%90%AD%E5%BB%BAGit%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/index.html">
 <meta property="og:site_name" content="光阴的故事">
 <meta property="og:description" content="Git、Gitea 和 TortoiseGit：代码版本控制与托管指南本文将介绍 Git 分布式版本控制系统，轻量级的自建 Git 服务 Gitea，以及 Git 的 Windows GUI 客户端 TortoiseGit。我们将探讨它们各自的功能、如何进行安装，以及如何将它们结合起来，为您的代码提供版本控制和集中托管。 1. Git：分布式版本控制的核心Git 是一个开源的分布式版本控制软件">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://vgtmy.github.io/img/gitea01.png">
+<meta property="og:image" content="https://www.vgtmy.com/img/gitea01.png">
 <meta property="article:published_time" content="2025-05-25T07:12:01.000Z">
 <meta property="article:modified_time" content="2025-05-25T07:26:12.000Z">
 <meta property="article:author" content="二郎神表弟">
@@ -36,7 +36,7 @@
 <meta property="article:tag" content="TortoiseGit">
 <meta property="article:tag" content="gitee">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://vgtmy.github.io/img/gitea01.png">
+<meta name="twitter:image" content="https://www.vgtmy.com/img/gitea01.png">
   
   
   
@@ -82,7 +82,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"vgtmy.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":90,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"88KjzOxOR2oBRVtIgnppDmWG-gzGzoHsz","app_key":"4LSiCze99E6WNi3YBrbrToct","server_url":"https://88kjzoxo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-05-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"www.vgtmy.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":90,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"88KjzOxOR2oBRVtIgnppDmWG-gzGzoHsz","app_key":"4LSiCze99E6WNi3YBrbrToct","server_url":"https://88kjzoxo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-05-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -519,7 +519,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>搭建Git代码仓库：代码版本控制与托管指南</div>
-      <div>https://vgtmy.github.io/2025/05/25/搭建Git代码仓库/</div>
+      <div>https://www.vgtmy.com/2025/05/25/搭建Git代码仓库/</div>
     </div>
     <div class="license-meta">
       
