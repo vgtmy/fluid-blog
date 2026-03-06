@@ -1,5 +1,5 @@
 ---
-title: Hexo博客多端同步与部署完整教程（TeXt风格排版）
+title: Hexo博客多端同步与部署完整教程
 date: 2026-03-05 10:17:22
 tags:
     -Hexo
