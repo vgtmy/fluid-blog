@@ -1,0 +1,901 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="二郎神表弟">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一次性把「源文件备份到 GitHub」+「阿里云站点同步」这两件事做成稳定工作流：可回滚、可迁移、可长期维护。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客多端同步与部署完整教程（TeXt风格排版）">
+<meta property="og:url" content="https://www.vgtmy.com/2026/03/05/Hexo%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E4%B8%8E%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%95%B4%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="光阴的故事">
+<meta property="og:description" content="一次性把「源文件备份到 GitHub」+「阿里云站点同步」这两件事做成稳定工作流：可回滚、可迁移、可长期维护。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.vgtmy.com/img/hexogit02.jpg">
+<meta property="article:published_time" content="2026-03-05T02:17:22.000Z">
+<meta property="article:modified_time" content="2026-03-06T02:55:52.187Z">
+<meta property="article:author" content="二郎神表弟">
+<meta property="article:tag" content="-Hexo -fluid -github -阿里云 -导航 -分享">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.vgtmy.com/img/hexogit02.jpg">
+  
+  
+  
+  <title>Hexo博客多端同步与部署完整教程（TeXt风格排版） - 光阴的故事</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.vgtmy.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":90,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"88KjzOxOR2oBRVtIgnppDmWG-gzGzoHsz","app_key":"4LSiCze99E6WNi3YBrbrToct","server_url":"https://88kjzoxo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-05-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>光阴的故事</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://news.erlangsh.us.kg" target="_self">
+                <i class="iconfont icon-news-fill"></i>
+                <span>今日新闻</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/hexogit01.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.6)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Hexo博客多端同步与部署完整教程（TeXt风格排版）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        二郎神表弟
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-05 10:17" pubdate>
+          2026年3月5日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Hexo博客多端同步与部署完整教程（TeXt风格排版）</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年3月6日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>一次性把「源文件备份到 GitHub」+「阿里云站点同步」这两件事做成稳定工作流：可回滚、可迁移、可长期维护。</p>
+<hr>
+ <span id="more"></span>
+
+<hr>
+<h3 id="🔹-一、问题背景"><a href="#🔹-一、问题背景" class="headerlink" title="🔹 一、问题背景"></a>🔹 一、问题背景</h3><p>你已经找到了本地的 Hexo 博客源文件夹，站点配置（<code>_config.yml</code> &#x2F; 主题配置等）也都设置好了，但现在遇到两个核心问题：</p>
+<ol>
+<li><strong>如何把博客源文件部署到 GitHub 仓库进行备份？</strong></li>
+<li><strong>如何与阿里云网站同步？</strong>（网站上的内容可能更新过：需要先把线上“新增文章”同步回本地，再继续写新文章并发布）</li>
+</ol>
+<hr>
+<h3 id="🔹-二、将博客源文件部署到-GitHub-仓库（备份源文件）"><a href="#🔹-二、将博客源文件部署到-GitHub-仓库（备份源文件）" class="headerlink" title="🔹 二、将博客源文件部署到 GitHub 仓库（备份源文件）"></a>🔹 二、将博客源文件部署到 GitHub 仓库（备份源文件）</h3><blockquote>
+<p>目标：把 <strong>源文件（写作原材料）</strong> 长期备份到 GitHub，便于多电脑同步、版本回滚、容灾。</p>
+</blockquote>
+<h4 id="▫️-1、在-GitHub-上创建新仓库"><a href="#▫️-1、在-GitHub-上创建新仓库" class="headerlink" title="▫️ 1、在 GitHub 上创建新仓库"></a>▫️ 1、在 GitHub 上创建新仓库</h4><ol>
+<li>登录 GitHub，点击右上角 <code>+</code>，选择 <strong>New repository</strong></li>
+<li><strong>Repository name</strong>：建议 <code>fluid-blog</code> &#x2F; <code>hexo-blog-source</code>（<strong>不要</strong>用 <code>username.github.io</code>，那个通常用于放静态成品）</li>
+<li>选择 <strong>Public</strong> 或 <strong>Private</strong>（按需）</li>
+<li>勾选 <strong>Add a README file</strong></li>
+<li>点击 <strong>Create repository</strong></li>
+<li>复制仓库的 <strong>HTTPS 地址</strong>（例如：<code>https://github.com/用户名/fluid-blog.git</code>）</li>
+</ol>
+<h4 id="▫️-2、配置本地-Git-并上传源文件"><a href="#▫️-2、配置本地-Git-并上传源文件" class="headerlink" title="▫️ 2、配置本地 Git 并上传源文件"></a>▫️ 2、配置本地 Git 并上传源文件</h4><p>打开 PowerShell &#x2F; 终端，进入博客根目录（包含 <code>_config.yml</code> 的文件夹）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 📌 1) 检查并修改远程仓库地址（如果已有 origin）</span><br>git remote -v<br>git remote set-url origin https://github.com/用户名/fluid-blog.git<br><br><span class="hljs-comment"># 📌 2) 确认当前分支（建议 main）</span><br>git branch<br><br><span class="hljs-comment"># 📌 3) 创建 .gitignore（忽略不需要上传的目录/文件）</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;node_modules/&quot;</span> &gt;&gt; .gitignore<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;public/&quot;</span> &gt;&gt; .gitignore<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;.deploy_git/&quot;</span> &gt;&gt; .gitignore<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;db.json&quot;</span> &gt;&gt; .gitignore<br><br><span class="hljs-comment"># 📌 4) 提交并推送</span><br>git add .<br>git commit -m <span class="hljs-string">&quot;备份博客源文件&quot;</span><br>git push -u origin main<br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-3、验证备份成功"><a href="#▫️-3、验证备份成功" class="headerlink" title="▫️ 3、验证备份成功"></a>▫️ 3、验证备份成功</h4><p>访问你的仓库页面，确认以下内容已上传：</p>
+<ul>
+<li><code>source/</code>（文章源文件）</li>
+<li><code>themes/</code>（主题文件）</li>
+<li><code>_config.yml</code>（站点配置）</li>
+<li><code>_config.fluid.yml</code>（主题配置，如有）</li>
+<li><code>package.json</code>（依赖配置）</li>
+</ul>
+<hr>
+<h3 id="🔹-三、解决“本地源文件”与“阿里云站点”同步问题"><a href="#🔹-三、解决“本地源文件”与“阿里云站点”同步问题" class="headerlink" title="🔹 三、解决“本地源文件”与“阿里云站点”同步问题"></a>🔹 三、解决“本地源文件”与“阿里云站点”同步问题</h3><blockquote>
+<p>关键点：<strong>阿里云站点通常是静态成品（HTML&#x2F;CSS&#x2F;JS）</strong>，不是源文件。<br>所以：线上有新增文章时，你需要“把文章内容取回本地源文件”，再进行后续发布。</p>
+</blockquote>
+<h4 id="▫️-1、理解-Hexo-的工作流（先把概念钉牢）"><a href="#▫️-1、理解-Hexo-的工作流（先把概念钉牢）" class="headerlink" title="▫️ 1、理解 Hexo 的工作流（先把概念钉牢）"></a>▫️ 1、理解 Hexo 的工作流（先把概念钉牢）</h4><ul>
+<li><strong>本地源文件</strong>：<code>source/_posts/</code> 下的 <code>.md</code>、主题配置等（写作原材料）</li>
+<li><strong>阿里云网站文件</strong>：<code>/var/www/html/</code> 下的静态网页（生成后的成品）</li>
+<li><strong>关系</strong>：源文件 → <code>hexo generate</code> → 静态文件 → <code>hexo deploy</code> → 阿里云</li>
+</ul>
+<blockquote>
+<p>⚠️ 执行 <code>hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</code> 会 <strong>覆盖</strong> 阿里云上的静态站点。<br>如果本地比线上旧，会导致线上新内容被覆盖掉 —— 所以必须先做“同步回本地”。</p>
+</blockquote>
+<hr>
+<h3 id="🔹-四、安全第一：先检查现状，再动手部署"><a href="#🔹-四、安全第一：先检查现状，再动手部署" class="headerlink" title="🔹 四、安全第一：先检查现状，再动手部署"></a>🔹 四、安全第一：先检查现状，再动手部署</h3><h4 id="▫️-1、检查-SSH-连接与服务器钩子是否存在"><a href="#▫️-1、检查-SSH-连接与服务器钩子是否存在" class="headerlink" title="▫️ 1、检查 SSH 连接与服务器钩子是否存在"></a>▫️ 1、检查 SSH 连接与服务器钩子是否存在</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 📌 测试 SSH，并确认 Git 钩子存在（示例路径）</span><br>ssh root@47.111.124.112 <span class="hljs-string">&quot;ls -la /var/www/html/.git/hooks/post-receive&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-2、确认本地-config-yml-的部署配置"><a href="#▫️-2、确认本地-config-yml-的部署配置" class="headerlink" title="▫️ 2、确认本地 _config.yml 的部署配置"></a>▫️ 2、确认本地 <code>_config.yml</code> 的部署配置</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># 📌 Deployment</span><br><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">root@47.111.124.112:/var/www/html/.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说明：这里的 repo 指向你服务器上的 bare 仓库目录；post-receive 会把内容 checkout 到站点目录。</p>
+</blockquote>
+<hr>
+<h3 id="🔹-五、把线上“新增文章”同步回本地（关键步骤）"><a href="#🔹-五、把线上“新增文章”同步回本地（关键步骤）" class="headerlink" title="🔹 五、把线上“新增文章”同步回本地（关键步骤）"></a>🔹 五、把线上“新增文章”同步回本地（关键步骤）</h3><p>由于线上是静态文件，无法直接“下载源文件”，需要用以下方式把新增文章内容回填到本地：</p>
+<h4 id="▫️-方法-1：手动复制粘贴（推荐，最安全）"><a href="#▫️-方法-1：手动复制粘贴（推荐，最安全）" class="headerlink" title="▫️ 方法 1：手动复制粘贴（推荐，最安全）"></a>▫️ 方法 1：手动复制粘贴（推荐，最安全）</h4><ol>
+<li>访问线上网站（例如 <code>www.vgtmy.com</code>），找出比本地新的文章</li>
+<li>进入文章详情页，复制 <strong>正文、图片、代码块</strong></li>
+<li>在本地 <code>source/_posts/</code> 下新建同名 <code>.md</code></li>
+<li>修复 Front-matter（示例）：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">文章标题</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2026-03-05 10:00:00</span><br><span class="hljs-attr">tags:</span> [<span class="hljs-string">标签1</span>, <span class="hljs-string">标签2</span>]<br><span class="hljs-attr">categories:</span> [<span class="hljs-string">分类</span>]<br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>下载文章图片，放到 <code>source/img/</code> 或你的图床目录，并修改 Markdown 图片链接</li>
+</ol>
+<h4 id="▫️-方法-2：浏览器插件辅助（文章较多时）"><a href="#▫️-方法-2：浏览器插件辅助（文章较多时）" class="headerlink" title="▫️ 方法 2：浏览器插件辅助（文章较多时）"></a>▫️ 方法 2：浏览器插件辅助（文章较多时）</h4><ol>
+<li>安装 Chrome 插件：<strong>MarkDownload</strong> &#x2F; <strong>Copy as Markdown</strong></li>
+<li>打开线上文章 → 用插件导出 Markdown</li>
+<li>粘贴到本地 <code>.md</code></li>
+<li>手动检查：Front-matter、图片路径、代码块格式</li>
+</ol>
+<blockquote>
+<p><strong>建议配一张“同步回本地”的流程图（AI图也行）</strong><br>提示词：<br>“Flowchart illustration: website article -&gt; copy as markdown -&gt; local source&#x2F;_posts -&gt; hexo generate preview -&gt; hexo deploy, minimal flat style, 16:9, no text”</p>
+</blockquote>
+<hr>
+<h3 id="🔹-六、配置-SSH-免密登录（可选但推荐）"><a href="#🔹-六、配置-SSH-免密登录（可选但推荐）" class="headerlink" title="🔹 六、配置 SSH 免密登录（可选但推荐）"></a>🔹 六、配置 SSH 免密登录（可选但推荐）</h3><p>避免每次部署输入密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 📌 1) 检查本地 SSH 公钥</span><br><span class="hljs-built_in">ls</span> ~/.ssh/id_rsa.pub<br><br><span class="hljs-comment"># 📌 2) 没有就生成</span><br>ssh-keygen -t rsa -b 4096 -C <span class="hljs-string">&quot;your_email@example.com&quot;</span><br><br><span class="hljs-comment"># 📌 3) 将公钥添加到服务器</span><br>ssh-copy-id root@47.111.124.112<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🔹-七、完整同步流程（建议你每次都按这个走）"><a href="#🔹-七、完整同步流程（建议你每次都按这个走）" class="headerlink" title="🔹 七、完整同步流程（建议你每次都按这个走）"></a>🔹 七、完整同步流程（建议你每次都按这个走）</h3><h4 id="▫️-第一步：备份线上网站（保险起见）"><a href="#▫️-第一步：备份线上网站（保险起见）" class="headerlink" title="▫️ 第一步：备份线上网站（保险起见）"></a>▫️ 第一步：备份线上网站（保险起见）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh root@47.111.124.112 <span class="hljs-string">&quot;cp -r /var/www/html /var/www/html_backup_<span class="hljs-subst">$(date +%Y%m%d)</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-第二步：手动同步线上新增文章到本地"><a href="#▫️-第二步：手动同步线上新增文章到本地" class="headerlink" title="▫️ 第二步：手动同步线上新增文章到本地"></a>▫️ 第二步：手动同步线上新增文章到本地</h4><p>按「第五部分」的方法，把线上新增文章内容回填到本地 <code>source/_posts/</code></p>
+<h4 id="▫️-第三步：本地生成并预览确认"><a href="#▫️-第三步：本地生成并预览确认" class="headerlink" title="▫️ 第三步：本地生成并预览确认"></a>▫️ 第三步：本地生成并预览确认</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean &amp;&amp; hexo generate<br>hexo server<br><span class="hljs-comment"># 📌 浏览器访问 http://localhost:4000</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-第四步：部署到阿里云"><a href="#▫️-第四步：部署到阿里云" class="headerlink" title="▫️ 第四步：部署到阿里云"></a>▫️ 第四步：部署到阿里云</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 📌 如果没装部署插件</span><br>npm install hexo-deployer-git --save<br><br><span class="hljs-comment"># 📌 部署</span><br>hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy<br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-第五步：把源文件推送到-GitHub-备份"><a href="#▫️-第五步：把源文件推送到-GitHub-备份" class="headerlink" title="▫️ 第五步：把源文件推送到 GitHub 备份"></a>▫️ 第五步：把源文件推送到 GitHub 备份</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git add .<br>git commit -m <span class="hljs-string">&quot;同步线上新文章到本地&quot;</span><br>git push origin main<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🔹-八、日常写作与发布（同步完成后的稳定节奏）"><a href="#🔹-八、日常写作与发布（同步完成后的稳定节奏）" class="headerlink" title="🔹 八、日常写作与发布（同步完成后的稳定节奏）"></a>🔹 八、日常写作与发布（同步完成后的稳定节奏）</h3><h4 id="▫️-1、写新文章"><a href="#▫️-1、写新文章" class="headerlink" title="▫️ 1、写新文章"></a>▫️ 1、写新文章</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new <span class="hljs-string">&quot;我的新文章标题&quot;</span><br><span class="hljs-comment"># 📌 编辑 source/_posts/我的新文章标题.md</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-2、本地预览（可选）"><a href="#▫️-2、本地预览（可选）" class="headerlink" title="▫️ 2、本地预览（可选）"></a>▫️ 2、本地预览（可选）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo server<br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-3、部署到阿里云"><a href="#▫️-3、部署到阿里云" class="headerlink" title="▫️ 3、部署到阿里云"></a>▫️ 3、部署到阿里云</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy<br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-4、备份到-GitHub"><a href="#▫️-4、备份到-GitHub" class="headerlink" title="▫️ 4、备份到 GitHub"></a>▫️ 4、备份到 GitHub</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git add <span class="hljs-built_in">source</span>/_posts/我的新文章标题.md<br>git commit -m <span class="hljs-string">&quot;新增文章：我的新文章标题&quot;</span><br>git push origin main<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🔹-九、常见问题与解决方案"><a href="#🔹-九、常见问题与解决方案" class="headerlink" title="🔹 九、常见问题与解决方案"></a>🔹 九、常见问题与解决方案</h3><h4 id="▫️-1、部署时提示-hexo-deployer-git-未安装"><a href="#▫️-1、部署时提示-hexo-deployer-git-未安装" class="headerlink" title="▫️ 1、部署时提示 hexo-deployer-git 未安装"></a>▫️ 1、部署时提示 <code>hexo-deployer-git</code> 未安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-2、SSH-连接提示权限错误"><a href="#▫️-2、SSH-连接提示权限错误" class="headerlink" title="▫️ 2、SSH 连接提示权限错误"></a>▫️ 2、SSH 连接提示权限错误</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -v root@47.111.124.112<br><span class="hljs-comment"># 📌 如仍失败：重新生成密钥并 ssh-copy-id</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-3、服务器-Git-仓库问题"><a href="#▫️-3、服务器-Git-仓库问题" class="headerlink" title="▫️ 3、服务器 Git 仓库问题"></a>▫️ 3、服务器 Git 仓库问题</h4><p>如果提示：<code>&#39;/var/www/html/.git&#39; does not appear to be a git repository</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh root@47.111.124.112<br><span class="hljs-built_in">cd</span> /var/www/html<br><span class="hljs-built_in">rm</span> -rf .git<br>git init --bare .git<br><br><span class="hljs-comment"># 📌 创建 post-receive 钩子</span><br><span class="hljs-built_in">cat</span> &gt; .git/hooks/post-receive &lt;&lt; <span class="hljs-string">&#x27;EOF&#x27;</span><br><span class="hljs-comment">#!/bin/sh</span><br>git --work-tree=/var/www/html --git-dir=/var/www/html/.git checkout -f<br>EOF<br><br><span class="hljs-built_in">chmod</span> +x .git/hooks/post-receive<br><span class="hljs-built_in">chown</span> -R www-data:www-data .git<br><span class="hljs-built_in">exit</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="▫️-4、GitHub-推送冲突"><a href="#▫️-4、GitHub-推送冲突" class="headerlink" title="▫️ 4、GitHub 推送冲突"></a>▫️ 4、GitHub 推送冲突</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git pull origin main --allow-unrelated-histories<br><span class="hljs-comment"># 📌 解决冲突后</span><br>git push origin main<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🔹-十、工作流程图（可直接贴到文章里）"><a href="#🔹-十、工作流程图（可直接贴到文章里）" class="headerlink" title="🔹 十、工作流程图（可直接贴到文章里）"></a>🔹 十、工作流程图（可直接贴到文章里）</h3><pre><code class=" mermaid">flowchart TD
+    A[线上网站有新文章] --&gt; B[手动复制文章内容到本地]
+    B --&gt; C[本地 source/_posts/ 新增 .md 文件]
+    C --&gt; D[hexo generate 预览确认]
+    D --&gt; E[hexo deploy 到阿里云]
+    E --&gt; F[git push 到 GitHub备份]
+    F --&gt; G[日常写作：hexo new 文章]
+    G --&gt; H[编辑完成]
+    H --&gt; I[hexo generate &amp;&amp; deploy]
+    I --&gt; J[git push 备份]
+    J --&gt; G
+</code></pre>
+
+<hr>
+<h3 id="🔹-十一、重要提醒（写在最后，真的很重要）"><a href="#🔹-十一、重要提醒（写在最后，真的很重要）" class="headerlink" title="🔹 十一、重要提醒（写在最后，真的很重要）"></a>🔹 十一、重要提醒（写在最后，真的很重要）</h3><ol>
+<li><strong>线上静态文件不能替代源文件</strong>：线上只有成品，源文件必须靠你自己维护</li>
+<li><strong>每次部署前先确认状态</strong>：<code>git status</code> 看本地是否有未提交变更</li>
+<li><strong>定期备份</strong>：GitHub 作为远程仓库非常稳</li>
+<li><strong>测试先行</strong>：本地 <code>hexo server</code> 看没问题再部署</li>
+<li><strong>不确定先备份</strong>：线上备份 + 本地提交，是最好的保险</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="category-chain-item">学习笔记</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" class="category-chain-item">学习心得</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Hexo-fluid-github-%E9%98%BF%E9%87%8C%E4%BA%91-%E5%AF%BC%E8%88%AA-%E5%88%86%E4%BA%AB/" class="print-no-link">#-Hexo -fluid -github -阿里云 -导航 -分享</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Hexo博客多端同步与部署完整教程（TeXt风格排版）</div>
+      <div>https://www.vgtmy.com/2026/03/05/Hexo博客多端同步与部署完整教程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>二郎神表弟</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月5日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年3月6日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/07/22/comfyui%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="comfyui学习笔记">
+                        <span class="hidden-mobile">comfyui学习笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"mQO3a0s27rXVUDdKliTz6ywM-gzGzoHsz","appKey":"qMsSmB72ex2HFqtr0c1w4Igc","path":"window.location.pathname","placeholder":"请留下您的评论~","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>二郎神表弟2025</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>基于Fluid主题</span></a>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
